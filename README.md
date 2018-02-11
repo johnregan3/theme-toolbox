@@ -1,2 +1,3 @@
-# wp-theme-tools
-A set of tools for theme developers cover common, but not simple features.
+# Theme Toolbox
+
+A set of tools for WP theme developers to cover common, but not simple features.
