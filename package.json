@@ -1,0 +1,51 @@
+{
+  "name": "Theme Toolbox",
+  "version": "0.1.0",
+  "description": "Toolset for theme developers to cover common, but not simple features.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "gulp copy-assets"
+  },
+  "engines": {
+    "npm": ">=2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnregan3/theme-toolbox.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "plugin",
+    "framework",
+  ],
+  "author": "HJohn Regan",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/johnregan3/theme-toolbox/issues"
+  },
+  "homepage": "https://github.com/johnregan3/theme-toolbox",
+  "dependencies": {
+    "del": "^2.2.2",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.3.1",
+    "gulp-clone": "^1.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-ignore": "^2.0.2",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-merge": "^0.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "2.6.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-watch": "^4.3.11",
+    "gulp-batch": "^1.0.5",
+    "merge2": "^1.0.3",
+    "run-sequence": "^1.2.2",
+  }
+}
