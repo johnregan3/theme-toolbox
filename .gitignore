@@ -17,3 +17,5 @@ Thumbs.db
 !.gitignore
 !.travis.yml
 
+
+node_modules/

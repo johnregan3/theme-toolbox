@@ -1,46 +1,34 @@
-// Defining base pathes
-var basePaths = {
-    modules: './modules/'
-};
-
-
-// Defining requirements
-var gulp         = require( 'gulp' );
-var plumber      = require( 'gulp-plumber' );
-var sass         = require( 'gulp-sass' );
-var watch        = require( 'gulp-watch' );
-var batch        = require( 'gulp-batch' );
-
+// Define module directory names.
 var modules = [
-    'video-player'
+    'video-player',
 ];
 
-gulp.task('build', function () {
-    console.log('Compiling Sass...');
-});
+// Defining requirements
+var gulp    = require( 'gulp' );
+var plumber = require( 'gulp-plumber' );
+var sass    = require( 'gulp-sass' );
+var watch   = require( 'gulp-watch' );
+var batch   = require( 'gulp-batch' );
 
 /**
  * Run: gulp watch
  *
  * This is where the action happens.
  *
- * Run this to watch the development files in /src, generate the minified versions
- * where appropriate, and update Browser Sync.
- *
- * Starts the watcher for all .scss and js files, and minimizes images.
+ * Watches the modules directory for a {module slug}/scss/{module slug}.scss file,
+ * then writes css to its css directory -- {module slug}/css/{module slug}.css.
  */
 gulp.task( 'watch', function() {
     var modulesLength = modules.length;
 
-    for (var i = 0; i < modulesLength; i++) {
-        var path = basePaths.modules + modules[ i ] + '/scss/*.scss';
+    for ( var i = 0; i < modulesLength; i ++ ) {
+        var path = './modules/' + modules[ i ] + '/scss/*.scss';
 
         gulp.src( path )
-        .pipe(
-            watch( path, batch( function (events, done) {
-                gulp.start('build', done);
-            })
-        ))
+        .pipe( watch( path, batch( function( events, done ) {
+                gulp.start( 'build', done );
+            } )
+        ) )
         .pipe(
             plumber( {
                 errorHandler: function( err ) {
@@ -49,9 +37,17 @@ gulp.task( 'watch', function() {
                 }
             } )
         )
-        .pipe( sass() )
         .pipe(
-            gulp.dest( basePaths.modules + modules[ i ] + '/css' )
+            sass( {
+                outputStyle: 'expanded'
+            } )
+        )
+        .pipe(
+            gulp.dest( './modules/' + modules[ i ] + '/css' )
         );
     }
+} );
+
+gulp.task( 'build', function() {
+    console.log( 'compiling sass...' );
 } );
