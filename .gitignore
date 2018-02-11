@@ -15,4 +15,5 @@ Thumbs.db
 
 # ...unless declared here.
 !.gitignore
+!.travis.yml
 
